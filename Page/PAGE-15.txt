@@ -1,0 +1,150 @@
+OBJECT Page 15 Location List
+{
+  OBJECT-PROPERTIES
+  {
+    Date=27.12.19;
+    Time=12:03:42;
+    Modified=Yes;
+    Version List=NAVW17.00;
+  }
+  PROPERTIES
+  {
+    Editable=No;
+    CaptionML=[ENU=Location List;
+               NOR=Lokasjonsoversikt];
+    SourceTable=Table14;
+    PageType=List;
+    CardPageID=Location Card;
+    ActionList=ACTIONS
+    {
+      { 1900000003;0 ;ActionContainer;
+                      ActionContainerType=RelatedInformation }
+      { 9       ;1   ;ActionGroup;
+                      CaptionML=[ENU=&Location;
+                                 NOR=&Lokasjon];
+                      Image=Warehouse }
+      { 10      ;2   ;Action    ;
+                      CaptionML=[ENU=&Resource Locations;
+                                 NOR=&Ressurslokasjoner];
+                      RunObject=Page 6015;
+                      RunPageLink=Location Code=FIELD(Code);
+                      Image=Resource }
+      { 7301    ;2   ;Separator  }
+      { 7300    ;2   ;Action    ;
+                      CaptionML=[ENU=&Zones;
+                                 NOR=&Soner];
+                      RunObject=Page 7300;
+                      RunPageLink=Location Code=FIELD(Code);
+                      Image=Zones }
+      { 11      ;2   ;Action    ;
+                      CaptionML=[ENU=&Bins;
+                                 NOR=&Hyller];
+                      RunObject=Page 7302;
+                      RunPageLink=Location Code=FIELD(Code);
+                      Image=Bins }
+      { 1900000005;0 ;ActionContainer;
+                      ActionContainerType=NewDocumentItems }
+      { 1907283205;1 ;Action    ;
+                      CaptionML=[ENU=Transfer Order;
+                                 NOR=Overf›ringsordre];
+                      RunObject=Page 5740;
+                      Promoted=Yes;
+                      Image=Document;
+                      PromotedCategory=New;
+                      RunPageMode=Create }
+      { 1900000004;0 ;ActionContainer;
+                      ActionContainerType=ActionItems }
+      { 1900888104;1 ;Action    ;
+                      CaptionML=[ENU=Create Warehouse location;
+                                 NOR=Opprett lagerlokasjon];
+                      RunObject=Report 5756;
+                      Promoted=Yes;
+                      Image=NewWarehouse;
+                      PromotedCategory=Process }
+      { 1900000006;0 ;ActionContainer;
+                      ActionContainerType=Reports }
+      { 1901320106;1 ;Action    ;
+                      CaptionML=[ENU=Inventory - Inbound Transfer;
+                                 NOR=Beholdning - inng. overf›ring];
+                      RunObject=Report 5702;
+                      Promoted=Yes;
+                      Image=Report;
+                      PromotedCategory=Report }
+      { 1907283206;1 ;Action    ;
+                      CaptionML=[ENU=Transfer Order;
+                                 NOR=Overf›ringsordre];
+                      RunObject=Report 5703;
+                      Promoted=Yes;
+                      Image=Document;
+                      PromotedCategory=Report }
+      { 1904855606;1 ;Action    ;
+                      CaptionML=[ENU=Transfer Shipment;
+                                 NOR=Overf›ringsseddel];
+                      RunObject=Report 5704;
+                      Promoted=No;
+                      Image=Report;
+                      PromotedCategory=Report }
+      { 1901432206;1 ;Action    ;
+                      CaptionML=[ENU=Transfer Receipt;
+                                 NOR=Overf›ringsmottak];
+                      RunObject=Report 5705;
+                      Promoted=No;
+                      Image=Report;
+                      PromotedCategory=Report }
+      { 1907335806;1 ;Action    ;
+                      CaptionML=[ENU=Check on Negative Inventory;
+                                 NOR=Kontroll for negativ beholdning];
+                      RunObject=Report 5757;
+                      Promoted=No;
+                      Image=Report;
+                      PromotedCategory=Report }
+    }
+  }
+  CONTROLS
+  {
+    { 1900000001;0;Container;
+                ContainerType=ContentArea }
+
+    { 1   ;1   ;Group     ;
+                GroupType=Repeater }
+
+    { 2   ;2   ;Field     ;
+                SourceExpr=Code }
+
+    { 4   ;2   ;Field     ;
+                SourceExpr=Name }
+
+    { 1900000007;0;Container;
+                ContainerType=FactBoxArea }
+
+    { 1900383207;1;Part   ;
+                Visible=FALSE;
+                PartType=System;
+                SystemPartID=RecordLinks }
+
+    { 1905767507;1;Part   ;
+                Visible=FALSE;
+                PartType=System;
+                SystemPartID=Notes }
+
+  }
+  CODE
+  {
+
+    PROCEDURE GetSelectionFilter@3() : Text;
+    VAR
+      Loc@1001 : Record 14;
+      SelectionFilterManagement@1002 : Codeunit 46;
+    BEGIN
+      CurrPage.SETSELECTIONFILTER(Loc);
+      EXIT(SelectionFilterManagement.GetSelectionFilterForLocation(Loc));
+    END;
+
+    BEGIN
+    {
+      // Added comment
+    }
+    END.
+  }
+}
+

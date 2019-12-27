@@ -1,0 +1,37 @@
+OBJECT XMLport 50000 Customer Port
+{
+  OBJECT-PROPERTIES
+  {
+    Date=27.12.19;
+    Time=12:06:20;
+    Modified=Yes;
+    Version List=CUST;
+  }
+  PROPERTIES
+  {
+  }
+  ELEMENTS
+  {
+    { [{76D2758B-EC37-4D7D-B984-C635A663423A}];  ;Customer            ;Element ;Text     }
+
+  }
+  EVENTS
+  {
+  }
+  REQUESTPAGE
+  {
+    PROPERTIES
+    {
+    }
+    CONTROLS
+    {
+    }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

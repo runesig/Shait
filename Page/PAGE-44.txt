@@ -2,8 +2,8 @@ OBJECT Page 44 Sales Credit Memo
 {
   OBJECT-PROPERTIES
   {
-    Date=23.09.13;
-    Time=12:00:00;
+    Date=28.12.19;
+    Time=12:02:18;
     Modified=Yes;
     Version List=NAVW17.10,NAVNO7.10;
   }
@@ -711,6 +711,9 @@ OBJECT Page 44 Sales Credit Memo
     END;
 
     BEGIN
+    {
+      Comment added
+    }
     END.
   }
 }
